@@ -21,6 +21,12 @@ module.exports = buildSchema(`
             class: String!
         }
         
+        input PriceInput {
+            name: String!
+            price: String!
+            class: String!      
+        }
+        
         type ContactInformation {
             _id: ID!
             address: String!
@@ -33,6 +39,18 @@ module.exports = buildSchema(`
             name: String!
             link: String!
             orderIndex: Int
+        }
+        
+        type User {
+            _id: ID!    
+            username: String!
+            password: String
+        }
+        
+        type AuthData {
+            userId: ID!
+            token: String!
+            tokenExpiration: Int!       
         }
         
         type Times {
@@ -62,10 +80,12 @@ module.exports = buildSchema(`
             contactInformation: [ContactInformation!]!
             links: [Links!]!
             workers: [Workers!]!
+            login(username: String!, password: String!): AuthData!
         }
         
         type RootMutation {
             createEvent(eventInput: EventInput): Event
+            createPrice(priceInput: PriceInput): Prices
         }
         
         schema {
