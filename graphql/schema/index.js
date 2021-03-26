@@ -35,6 +35,11 @@ module.exports = buildSchema(`
             phone: String!
         }
         
+        input AboutUsTextInput {
+            _id: ID!
+            text: String!
+        }
+        
         type ContactInformation {
             _id: ID!
             address: String!
@@ -97,6 +102,7 @@ module.exports = buildSchema(`
             removePrice(priceID: ID!): Prices
             updatePrice(priceInput: PriceInput): Prices
             updateContactInformation(contactInformationInput: ContactInformationInput): ContactInformation
+            updateAboutUsText(aboutUsTextInput: AboutUsTextInput) : AboutUsText
         }
         
         schema {
