@@ -22,6 +22,7 @@ module.exports = buildSchema(`
         }
         
         input PriceInput {
+            _id: ID
             name: String!
             price: String!
             class: String!      
@@ -86,6 +87,8 @@ module.exports = buildSchema(`
         type RootMutation {
             createEvent(eventInput: EventInput): Event
             createPrice(priceInput: PriceInput): Prices
+            removePrice(priceID: ID!): Prices
+            updatePrice(priceInput: PriceInput): Prices
         }
         
         schema {
