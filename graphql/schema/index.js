@@ -42,6 +42,20 @@ module.exports = buildSchema(`
             orderIndex: Int!
         }
         
+        input WorkerInput {
+            _id: ID
+            name: String!
+            position: String!
+            imageUrl: String!
+            receptionTimes: [TimeInput!]!
+            mobileTimes: [TimeInput!]!
+        }
+        
+        input TimeInput {
+            day: String!
+            time: String!
+        }
+        
         input AboutUsTextInput {
             _id: ID!
             text: String!
@@ -79,6 +93,7 @@ module.exports = buildSchema(`
         }
         
         type Workers {
+            _id: ID!
             name: String!
             position: String!
             imageUrl: String!
@@ -113,6 +128,9 @@ module.exports = buildSchema(`
             createLink(linkInput: LinkInput!): Links
             deleteLink(linkID: ID!): Links
             updateLink(linkInput: LinkInput!): Links
+            createWorker(workerInput: WorkerInput!): Workers
+            deleteWorker(workerID: ID!): Workers
+            updateWorker(workerInput: WorkerInput!): Workers
         }
         
         schema {
