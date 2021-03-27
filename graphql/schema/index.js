@@ -35,6 +35,13 @@ module.exports = buildSchema(`
             phone: String!
         }
         
+        input LinkInput {
+            _id: ID
+            name: String!
+            link: String!
+            orderIndex: Int!
+        }
+        
         input AboutUsTextInput {
             _id: ID!
             text: String!
@@ -103,6 +110,9 @@ module.exports = buildSchema(`
             updatePrice(priceInput: PriceInput): Prices
             updateContactInformation(contactInformationInput: ContactInformationInput): ContactInformation
             updateAboutUsText(aboutUsTextInput: AboutUsTextInput) : AboutUsText
+            createLink(linkInput: LinkInput!): Links
+            deleteLink(linkID: ID!): Links
+            updateLink(linkInput: LinkInput!): Links
         }
         
         schema {
