@@ -20,6 +20,10 @@ module.exports = buildSchema(`
             price: String!
             class: String!
         }
+        type PricesQuery {
+            data: [Prices!]!
+            class: String!
+        }
         
         input PriceInput {
             _id: ID
@@ -110,9 +114,9 @@ module.exports = buildSchema(`
         
         type RootQuery {
             events: [Event!]!
-            aboutUs: [AboutUsText!]!
-            prices: [Prices!]!
-            contactInformation: [ContactInformation!]!
+            aboutUs: AboutUsText!
+            prices: [PricesQuery!]!
+            contactInformation: ContactInformation!
             links: [Links!]!
             workers: [Workers!]!
             login(username: String!, password: String!): AuthData!

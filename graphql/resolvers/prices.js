@@ -3,7 +3,16 @@ const PricesModel = require("../../models/pricesModel")
 module.exports = {
     prices: async () => {
         try {
-            return await PricesModel.find()
+            const prices = await PricesModel.find()
+            const set = new Set(prices.map(item => item.class))
+            let nestedPrices = []
+            set.forEach(priceClass => {
+                let filteredPrices = {}
+                filteredPrices.data = prices.filter(price => price.class === priceClass)
+                filteredPrices.class = priceClass
+                nestedPrices.push(filteredPrices)
+            })
+            return nestedPrices
         } catch (err) {
             throw new err
         }

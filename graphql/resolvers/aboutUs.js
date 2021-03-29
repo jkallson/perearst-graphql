@@ -3,7 +3,7 @@ const AboutUsModel = require("../../models/aboutUsModel")
 module.exports = {
     aboutUs: async () => {
         try {
-            return await AboutUsModel.find()
+            return await AboutUsModel.findOne()
         } catch (err) {
             throw new err
         }
