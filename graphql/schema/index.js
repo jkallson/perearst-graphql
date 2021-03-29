@@ -1,15 +1,7 @@
 const { buildSchema } = require('graphql')
 
 module.exports = buildSchema(`
-        type Event {
-            _id: ID!
-            title: String!
-            description: String!
-            price: Float!
-            date: String!
-        }
-        
-        type AboutUsText {
+       type AboutUsText {
             _id: ID!
             text: String!
         }
@@ -105,15 +97,7 @@ module.exports = buildSchema(`
             mobileTimes: [Times]!
         }
         
-        input EventInput {
-            title: String!
-            description: String!
-            price: Float!
-            date: String!
-        }
-        
         type RootQuery {
-            events: [Event!]!
             aboutUs: AboutUsText!
             prices: [PricesQuery!]!
             contactInformation: ContactInformation!
@@ -123,7 +107,6 @@ module.exports = buildSchema(`
         }
         
         type RootMutation {
-            createEvent(eventInput: EventInput): Event
             createPrice(priceInput: PriceInput): Prices
             removePrice(priceID: ID!): Prices
             updatePrice(priceInput: PriceInput): Prices
