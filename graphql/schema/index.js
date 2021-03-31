@@ -96,6 +96,19 @@ module.exports = buildSchema(`
             receptionTimes: [Times]!
             mobileTimes: [Times]!
         }
+        type News {
+            _id: ID!
+            name: String!
+            content: String!
+            date: String!
+        }
+        
+        input NewsInput {
+            _id: ID
+            name: String!
+            content: String!
+            date: String!
+        }
         
         type RootQuery {
             aboutUs: AboutUsText!
@@ -104,6 +117,7 @@ module.exports = buildSchema(`
             links: [Links!]!
             workers: [Workers!]!
             login(username: String!, password: String!): AuthData!
+            news: [News!]!
         }
         
         type RootMutation {
@@ -118,6 +132,9 @@ module.exports = buildSchema(`
             createWorker(workerInput: WorkerInput!): Workers
             deleteWorker(workerID: ID!): Workers
             updateWorker(workerInput: WorkerInput!): Workers
+            createNews(newsInput: NewsInput!): News
+            updateNews(newsInput: NewsInput!): News
+            deleteNews(newsID: ID!): News
         }
         
         schema {

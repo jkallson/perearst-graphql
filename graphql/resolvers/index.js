@@ -4,6 +4,7 @@ const linksResolver = require("./links")
 const pricesResolver = require("./prices")
 const workersResolver = require("./workers")
 const authResolver = require("./auth")
+const newsResolver = require("./news")
 
 const rootResolver = {
     ...aboutUsResolver,
@@ -11,7 +12,8 @@ const rootResolver = {
     ...linksResolver,
     ...pricesResolver,
     ...workersResolver,
-    ...authResolver
+    ...authResolver,
+    ...newsResolver
 }
 
 module.exports = rootResolver
