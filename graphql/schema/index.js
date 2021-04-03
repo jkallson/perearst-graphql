@@ -110,6 +110,18 @@ module.exports = buildSchema(`
             date: String!
         }
         
+        input RegulationsInput {
+            _id: ID
+            name: String!
+            content: String!
+        }
+        
+        type Regulation {
+            _id: ID!
+            name: String!
+            content: String!
+        }
+        
         type RootQuery {
             aboutUs: AboutUsText!
             prices: [PricesQuery!]!
@@ -118,6 +130,7 @@ module.exports = buildSchema(`
             workers: [Workers!]!
             login(username: String!, password: String!): AuthData!
             news: [News!]!
+            regulations: [Regulation!]!
         }
         
         type RootMutation {
@@ -135,6 +148,9 @@ module.exports = buildSchema(`
             createNews(newsInput: NewsInput!): News
             updateNews(newsInput: NewsInput!): News
             deleteNews(newsID: ID!): News
+            createRegulation(regulationsInput: RegulationsInput!): Regulation
+            updateRegulation(regulationsInput: RegulationsInput!): Regulation
+            deleteRegulation(regulationID: ID!): Regulation
         }
         
         schema {
