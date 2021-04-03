@@ -2,10 +2,10 @@
   "name": "perearstgraphql",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "nodemon app.js"
+    "start": "node api/index.js",
+    "test": "nodemon api/index.js"
   },
   "author": "",
   "license": "ISC",
