@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "builds": [{ "src": "app.js", "use": "@now/node" }],
-  "routes": [{ "src": "/graphql", "dest": "app.js" }],
+  "builds": [{ "src": "/app.js", "use": "@now/node" }],
+  "routes": [{ "src": "/graphql", "dest": "/app.js" }],
   "env": {
     "MONGO_DB_URI": "@mongo_db_uri",
     "SECRET_KEY": "@secretkey"
