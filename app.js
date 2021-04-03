@@ -2,9 +2,9 @@ const express = require("express")
 const { graphqlHTTP } = require("express-graphql")
 const mongoose = require("mongoose")
 const app = express();
-const graphQlSchema = require("../graphql/schema")
-const graphQlResolvers = require("../graphql/resolvers")
-const isAuth = require('../middleware/isAuth')
+const graphQlSchema = require("./graphql/schema")
+const graphQlResolvers = require("./graphql/resolvers")
+const isAuth = require('./middleware/isAuth')
 require("dotenv/config");
 
 app.use(express.urlencoded({ extended: true }));
@@ -35,10 +35,8 @@ mongoose.connect(process.env.MONGO_DB_URI, {
     useCreateIndex: true,
 }).then(() => {
     console.log("Successfully connected to the database");
-    app.listen(4000);
+    app.listen(3000);
 }).catch(err => {
     console.log('Could not connect to the database. Exiting now...', err);
     process.exit();
 });
-
-module.exports = app
