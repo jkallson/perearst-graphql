@@ -142,6 +142,7 @@ module.exports = buildSchema(`
             createLink(linkInput: LinkInput!): Links
             deleteLink(linkID: ID!): Links
             updateLink(linkInput: LinkInput!): Links
+            updateLinkOrder(linkInput: [LinkInput!]!) : [Links!]!
             createWorker(workerInput: WorkerInput!): Workers
             deleteWorker(workerID: ID!): Workers
             updateWorker(workerInput: WorkerInput!): Workers
