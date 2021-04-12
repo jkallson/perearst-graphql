@@ -3,7 +3,7 @@ const NewsModel = require('../../models/newsModel')
 module.exports = {
     news: async () => {
         try {
-            return await NewsModel.find()
+            return await NewsModel.find().sort({date:-1}).sort({_id: -1}).limit(10);
         } catch (err) {
             throw new err
         }
