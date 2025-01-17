@@ -6,7 +6,6 @@ const workersResolver = require("./workers")
 const authResolver = require("./auth")
 const newsResolver = require("./news")
 const regulationsResolver = require("./regulations")
-const emailSender = require("./emailSender")
 
 const rootResolver = {
     ...aboutUsResolver,
@@ -16,8 +15,7 @@ const rootResolver = {
     ...workersResolver,
     ...authResolver,
     ...newsResolver,
-    ...regulationsResolver,
-    ...emailSender
+    ...regulationsResolver
 }
 
 module.exports = rootResolver
