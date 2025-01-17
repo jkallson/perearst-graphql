@@ -122,16 +122,6 @@ module.exports = buildSchema(`
             content: String!
         }
         
-        type Email {
-            response: String!
-        }
-        
-        input EmailForm {
-            subject: String!
-            replyTo: String!
-            text: String!
-        }
-        
         type RootQuery {
             aboutUs: AboutUsText!
             prices: [PricesQuery!]!
@@ -162,7 +152,6 @@ module.exports = buildSchema(`
             createRegulation(regulationsInput: RegulationsInput!): Regulation
             updateRegulation(regulationsInput: RegulationsInput!): Regulation
             deleteRegulation(regulationID: ID!): Regulation
-            sendEmail(emailForm: EmailForm!): Email!
         }
         
         schema {
